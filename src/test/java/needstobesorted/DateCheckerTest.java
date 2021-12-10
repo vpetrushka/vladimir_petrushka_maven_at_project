@@ -62,7 +62,7 @@ public class DateCheckerTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        String firstSelected = driver.findElement(By.xpath("//div[@data-testid = 'property-card'][1]/div/div/div/a")).getAttribute("href");
+        String firstSelected = driver.findElement(By.xpath("//div[@data-testid = 'property-card'][1]//a")).getAttribute("href");
         driver.navigate().to(firstSelected);
         double value = Double.parseDouble((driver.findElement(By.xpath("//div[@data-testid = 'review-score-right-component']/div[contains(@aria-label,' ')]")).getText()));
         Assert.assertTrue("Incorrect hotel rating ", value >= 9);

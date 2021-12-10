@@ -2,6 +2,7 @@ package guiapi.booking;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class MainPage {
@@ -57,5 +58,25 @@ public class MainPage {
 
     public void submitSearch(){
         driver.findElement(By.xpath("//button[@data-sb-id='main']")).click();
+    }
+
+    public WebElement getCurrencyField(){
+        WebElement currencyField = driver.findElement(By.xpath("//button[@data-modal-aria-label  = 'Select your currency']"));
+        return currencyField;
+    }
+
+    public String getCurrencyPopUpText(){
+        String currencyPopUpText = driver.findElement(By.xpath("//div[@class= 'bui-tooltip__content']")).getText();
+        return currencyPopUpText;
+    }
+
+    public WebElement getLanguageField(){
+        WebElement languageField = driver.findElement(By.xpath("//button[@data-modal-aria-label  = 'Select your language']"));
+        return languageField;
+    }
+
+    public String getLanguagePopUpText(){
+        String languagePopUpText = driver.findElement(By.xpath("//div[@class= 'bui-tooltip__content']")).getText();
+        return languagePopUpText;
     }
 }
