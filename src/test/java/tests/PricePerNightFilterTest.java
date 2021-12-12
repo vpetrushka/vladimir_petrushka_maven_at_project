@@ -6,14 +6,13 @@ import guiapi.booking.SearchResultPage;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static guiapi.BasicDriver.webDriver;
+
 public class PricePerNightFilterTest {
 
-    WebDriver driver = new ChromeDriver();
     DateCreator date = new DateCreator();
     MainPage mainPage = new MainPage();
     SearchResultPage searchResultPage = new SearchResultPage();
@@ -34,21 +33,21 @@ public class PricePerNightFilterTest {
         searchResultPage.setMaxValueBudgetSort();
         int value = searchResultPage.getMaxValueBudget();
 
-        new WebDriverWait(driver, 1000).until(
+        new WebDriverWait(webDriver, 1000).until(
                 ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@data-testid = 'overlay-card']"))
         );
 
         searchResultPage.sortByLowestPrice();
 
-        new WebDriverWait(driver, 1000).until(
+        new WebDriverWait(webDriver, 1000).until(
                 ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@data-testid = 'overlay-card']"))
         );
 
         int cost = searchResultPage.getCostOfHotel(1);
         Assert.assertTrue("Incorrect value", cost / 7 >= value);
 
-        driver.close();
-        driver.quit();
+        webDriver.close();
+        webDriver.quit();
 
     }
 }

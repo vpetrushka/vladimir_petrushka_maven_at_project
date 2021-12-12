@@ -1,11 +1,13 @@
+package guiapi;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class BasicDriver {
 
-    private static WebDriver webDriver;
+    public static WebDriver webDriver;
 
-    public WebDriver getWebDriver(){
+    public static WebDriver getWebDriver(){
         if(webDriver == null){
             webDriver = new ChromeDriver();
         }
