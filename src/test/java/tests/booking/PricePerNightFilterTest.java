@@ -1,15 +1,15 @@
-package tests;
+package tests.booking;
 
-import guiapi.booking.DateCreator;
-import guiapi.booking.MainPage;
-import guiapi.booking.SearchResultPage;
+import utils.booking.DateCreator;
+import pages.booking.MainPage;
+import pages.booking.SearchResultPage;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static guiapi.BasicDriver.webDriver;
+import static driver.BasicDriver.webDriver;
 
 public class PricePerNightFilterTest {
 

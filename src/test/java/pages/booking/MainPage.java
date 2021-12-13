@@ -1,4 +1,4 @@
-package guiapi.booking;
+package pages.booking;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

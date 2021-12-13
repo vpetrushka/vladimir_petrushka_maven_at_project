@@ -1,4 +1,4 @@
-package guiapi.booking;
+package utils.booking;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
