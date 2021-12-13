@@ -64,22 +64,18 @@ public class MainPage {
     }
 
     public WebElement getCurrencyField() {
-        WebElement currencyField = driver.findElement(By.xpath(CURRENCY_BUTTON));
-        return currencyField;
+        return driver.findElement(By.xpath(CURRENCY_BUTTON));
     }
 
     public String getCurrencyPopUpText() {
-        String currencyPopUpText = driver.findElement(By.xpath(TOOLTIP_INFO)).getText();
-        return currencyPopUpText;
+        return driver.findElement(By.xpath(TOOLTIP_INFO)).getText();
     }
 
     public WebElement getLanguageField() {
-        WebElement languageField = driver.findElement(By.xpath(LANGUAGE_BUTTON));
-        return languageField;
+        return driver.findElement(By.xpath(LANGUAGE_BUTTON));
     }
 
     public String getLanguagePopUpText() {
-        String languagePopUpText = driver.findElement(By.xpath(TOOLTIP_INFO)).getText();
-        return languagePopUpText;
+        return driver.findElement(By.xpath(TOOLTIP_INFO)).getText();
     }
 }
