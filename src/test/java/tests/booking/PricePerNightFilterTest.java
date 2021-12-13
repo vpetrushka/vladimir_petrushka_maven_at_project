@@ -34,7 +34,7 @@ public class PricePerNightFilterTest {
         int value = searchResultPage.getMaxValueBudget();
 
         new WebDriverWait(webDriver, 1000).until(
-                ExpectedConditions.invisibilityOfElementLocated((By) searchResultPage.getSpinner())
+                ExpectedConditions.invisibilityOfElementLocated(By.xpath(SearchResultPage.SPINNER))
         );
 
         searchResultPage.sortByLowestPrice();
