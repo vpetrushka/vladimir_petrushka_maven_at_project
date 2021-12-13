@@ -34,7 +34,7 @@ public class PricePerNightFilterTest {
         int value = searchResultPage.getMaxValueBudget();
 
         new WebDriverWait(webDriver, 1000).until(
-                ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@data-testid = 'overlay-card']"))
+                ExpectedConditions.invisibilityOfElementLocated((By) searchResultPage.getSpinner())
         );
 
         searchResultPage.sortByLowestPrice();
