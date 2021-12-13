@@ -26,32 +26,25 @@ public class MainPage {
     public void setNumberOfAdults(int number) {
 
         if (number == 1) {
-            performPlusMinusInput("Decrease", number);
+            performPlusMinusInput("Decrease", "Adults", number);
 
         } else if (number > 2 && number < 31) {
-            performPlusMinusInput("Increase",number-2);
+            performPlusMinusInput("Increase", "Adults", number - 2);
         }
-        driver.close();
     }
 
-    private void performPlusMinusInput(String direction, int times) {
+    private void performPlusMinusInput(String direction, String type, int times) {
         for (int i = 0; i < times; i++) {
             driver.findElement(By.xpath("//span[@class = 'xp__guests__count']")).click();
-            driver.findElement(By.xpath(String.format("//button[@aria-label = '%s number of Adults']", direction))).click();
+            driver.findElement(By.xpath(String.format("//button[@aria-label = '%s number of %s']", direction, type))).click();
             driver.findElement(By.xpath("//span[contains(.,'and much more')]")).click();
         }
     }
 
     public void setNumberOfRooms(int number) {
         if (number > 1 && number < 31) {
-            driver.findElement(By.xpath("//span[@class = 'xp__guests__count']")).click();
-            for (int i = 0; i < number - 1; i++) {
-                driver.findElement(By.xpath("//button[@aria-label = 'Increase number of Rooms']")).click();
-            }
-            driver.findElement(By.xpath("//span[contains(.,'and much more')]")).click();
-        } else
-            System.out.println("Max number of rooms is 30");
-        driver.close();
+            performPlusMinusInput("Increase", "Rooms", number - 1);
+        }
     }
 
     public void submitSearch() {
