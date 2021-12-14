@@ -9,7 +9,6 @@ public class HotelPage {
     WebDriver driver = BasicDriver.getWebDriver();
 
     public double getHotelRating(){
-        double hotelRating = Double.parseDouble((driver.findElement(By.xpath("//div[@data-testid = 'review-score-right-component']/div[contains(@aria-label,' ')]")).getText()));
-        return hotelRating;
+        return Double.parseDouble((driver.findElement(By.xpath("//div[@data-testid = 'review-score-right-component']/div[contains(@aria-label,' ')]")).getText()));
     }
 }

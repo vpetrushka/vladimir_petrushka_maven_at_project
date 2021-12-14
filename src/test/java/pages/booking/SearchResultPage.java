@@ -58,6 +58,10 @@ public class SearchResultPage {
         driver.findElement(By.xpath(MAXIMUM_RATING)).click();
     }
 
+    public void navigateToLink(int cardNumber){
+        driver.navigate().to(getCardHotelLink(cardNumber));
+    }
+
     public String getCardHotelLink(int cardNumber) {
         return driver.findElement(By.xpath(String.format(PROPERTY_CARD, cardNumber))).getAttribute("href");
     }
