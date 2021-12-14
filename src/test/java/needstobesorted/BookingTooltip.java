@@ -18,7 +18,18 @@ public class BookingTooltip {
         WebElement element = driver.findElement(By.xpath("//button[@data-modal-aria-label  = 'Select your currency']"));
         Actions actions = new Actions(driver);
         actions.moveToElement(element);
+        actions.perform();
+        Assert.assertEquals("Incorrect tooltip name","Choose your currency" ,driver.findElement(By.xpath("//div[@class= 'bui-tooltip__content']")).getText());
 
-        
+        element = driver.findElement(By.xpath("//button[@data-modal-aria-label  = 'Select your language']"));
+
+        actions = new Actions(driver);
+
+        actions.moveToElement(element);
+        actions.perform();
+
+        Assert.assertEquals("Incorrect tooltip name", "Choose your language", driver.findElement(By.xpath("//div[@class= 'bui-tooltip__content']")).getText());
+
+
     }
 }
