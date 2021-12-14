@@ -46,11 +46,11 @@ public class MainPage {
     }
 
     private void performPlusMinusInput(String direction, String type, int times) {
+        driver.findElement(By.xpath(GUEST_ROOMS_SELECTOR)).click();
         for (int i = 0; i < times; i++) {
-            driver.findElement(By.xpath(GUEST_ROOMS_SELECTOR)).click();
             driver.findElement(By.xpath(String.format(PLUS_MINUS, direction, type))).click();
-            driver.findElement(By.xpath(CLOSE_ALL_POPUPS)).click();
         }
+        driver.findElement(By.xpath(CLOSE_ALL_POPUPS)).click();
     }
 
     public void setNumberOfRooms(int number) {

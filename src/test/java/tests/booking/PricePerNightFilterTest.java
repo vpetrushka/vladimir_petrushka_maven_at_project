@@ -36,9 +36,5 @@ public class PricePerNightFilterTest {
         explicitWait.waitForElement(SearchResultPage.SPINNER);
         int cost = searchResultPage.getCostOfHotel(1);
         Assert.assertTrue("Incorrect value", cost / 7 >= value);
-
-        webDriver.close();
-        webDriver.quit();
-
     }
 }
