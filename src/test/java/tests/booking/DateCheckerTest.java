@@ -1,12 +1,15 @@
 package tests.booking;
 
+import driver.BasicDriver;
 import org.junit.Assert;
 import org.junit.Test;
+import org.openqa.selenium.interactions.Actions;
 import pages.booking.HotelPage;
 import pages.booking.MainPage;
 import pages.booking.SearchResultPage;
 import utils.booking.DateCreator;
 import utils.booking.ExplicitWait;
+import utils.booking.PerformActions;
 
 public class DateCheckerTest {
 
@@ -15,6 +18,7 @@ public class DateCheckerTest {
     SearchResultPage searchResultPage = new SearchResultPage();
     ExplicitWait wait = new ExplicitWait();
     HotelPage hotelPage = new HotelPage();
+    PerformActions actions = new PerformActions();
 
     @Test
     public void checkForDateTest() {
@@ -27,7 +31,7 @@ public class DateCheckerTest {
     }
 
     @Test
-    public void checkForDateWithRating() {
+    public void checkForDateWithRatingTest() {
 
         mainPage.navigateToMainPage();
         mainPage.setCity("Москва");
@@ -36,6 +40,7 @@ public class DateCheckerTest {
         searchResultPage.getMaximumRatedHotels();
         wait.waitForElement(SearchResultPage.SPINNER);
         searchResultPage.navigateToLink(1);
+        actions.moveToElement(hotelPage.getReviewFloater());
         Assert.assertTrue("Incorrect hotel rating ", hotelPage.getHotelRating() >= 9);
 
     }
