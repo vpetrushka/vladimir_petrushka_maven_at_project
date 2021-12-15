@@ -7,7 +7,7 @@ import pages.booking.MainPage;
 import pages.booking.SearchResultPage;
 import utils.booking.DateCreator;
 import utils.booking.ExplicitWait;
-import utils.booking.PerformActions;
+import utils.performactions.PerformActions;
 
 public class DateCheckerTest {
 

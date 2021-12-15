@@ -3,7 +3,7 @@ package tests.booking;
 import org.junit.Assert;
 import org.junit.Test;
 import pages.booking.MainPage;
-import utils.booking.PerformActions;
+import utils.performactions.PerformActions;
 
 public class BookingTooltipTest {
 
