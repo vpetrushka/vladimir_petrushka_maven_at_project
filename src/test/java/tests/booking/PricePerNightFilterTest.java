@@ -7,8 +7,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import utils.booking.ExplicitWait;
 
-import static driver.BasicDriver.webDriver;
-
 public class PricePerNightFilterTest {
 
     DateCreator date = new DateCreator();

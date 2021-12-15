@@ -1,9 +1,7 @@
 package tests.booking;
 
-import driver.BasicDriver;
 import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.interactions.Actions;
 import pages.booking.HotelPage;
 import pages.booking.MainPage;
 import pages.booking.SearchResultPage;
