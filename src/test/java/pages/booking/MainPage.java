@@ -18,6 +18,9 @@ public class MainPage {
     public static final String CURRENCY_BUTTON = "//button[@data-modal-aria-label  = 'Select your currency']";
     public static final String LANGUAGE_BUTTON = "//button[@data-modal-aria-label  = 'Select your language']";
     public static final String TOOLTIP_INFO = "//div[@class= 'bui-tooltip__content']";
+    public static final String REGISTER_BUTTON = "//span[contains(.,'Register')]";
+    public static final String CLOSE_MODAL_WINDOW = "//button[@aria-label = 'Close dialog']";
+
 
     WebDriver driver = BasicDriver.getWebDriver();
 
@@ -78,4 +81,13 @@ public class MainPage {
     public String getLanguagePopUpText() {
         return driver.findElement(By.xpath(TOOLTIP_INFO)).getText();
     }
+
+    public void clickRegister(){
+        driver.findElement(By.xpath(REGISTER_BUTTON)).click();
+    }
+
+    public void closeModalWindow(){
+        driver.findElement(By.xpath(CLOSE_MODAL_WINDOW)).click();
+    }
+
 }
