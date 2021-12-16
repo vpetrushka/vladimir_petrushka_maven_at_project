@@ -13,7 +13,6 @@ import pages.google.SearchResultPage;
 import pages.w3School.JavaPage;
 import utils.performactions.PerformActions;
 
-
 public class WebdriverW3SchoolTest {
 
     WebDriver driver = new ChromeDriver();

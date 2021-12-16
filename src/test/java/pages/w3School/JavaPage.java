@@ -12,7 +12,6 @@ public class JavaPage {
     public static final String PAGE_LINK = "https://www.w3schools.com/java/";
     public static final String TUTORIAL_FIELD = "//span[contains(text(),'Tutorial')]";
 
-
     public void navigateToPage(){
         driver.navigate().to(PAGE_LINK);
     }
