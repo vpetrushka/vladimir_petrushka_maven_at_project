@@ -5,17 +5,14 @@ import pages.booking.MainPage;
 import pages.booking.SearchResultPage;
 import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import static driver.BasicDriver.webDriver;
+import utils.booking.ExplicitWait;
 
 public class PricePerNightFilterTest {
 
     DateCreator date = new DateCreator();
     MainPage mainPage = new MainPage();
     SearchResultPage searchResultPage = new SearchResultPage();
+    ExplicitWait explicitWait = new ExplicitWait();
 
 
     @Test
@@ -26,28 +23,16 @@ public class PricePerNightFilterTest {
 
         mainPage.navigateToMainPage();
         mainPage.setCity("Paris");
-        mainPage.setCheckInOut(dateIn,dateOut);
+        mainPage.setCheckInOut(dateIn, dateOut);
         mainPage.setNumberOfAdults(4);
         mainPage.setNumberOfRooms(2);
         mainPage.submitSearch();
         searchResultPage.setMaxValueBudgetSort();
         int value = searchResultPage.getMaxValueBudget();
-
-        new WebDriverWait(webDriver, 1000).until(
-                ExpectedConditions.invisibilityOfElementLocated(By.xpath(SearchResultPage.SPINNER))
-        );
-
+        explicitWait.waitForElement(SearchResultPage.SPINNER);
         searchResultPage.sortByLowestPrice();
-
-        new WebDriverWait(webDriver, 1000).until(
-                ExpectedConditions.invisibilityOfElementLocated(By.xpath("//div[@data-testid = 'overlay-card']"))
-        );
-
+        explicitWait.waitForElement(SearchResultPage.SPINNER);
         int cost = searchResultPage.getCostOfHotel(1);
         Assert.assertTrue("Incorrect value", cost / 7 >= value);
-
-        webDriver.close();
-        webDriver.quit();
-
     }
 }
