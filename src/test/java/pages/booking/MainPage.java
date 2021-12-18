@@ -20,6 +20,7 @@ public class MainPage {
     public static final String TOOLTIP_INFO = "//div[@class= 'bui-tooltip__content']";
     public static final String REGISTER_BUTTON = "//span[contains(.,'Register')]";
     public static final String CLOSE_MODAL_WINDOW = "//button[@aria-label = 'Close dialog']";
+    public static final String SIGN_IN_BUTTON = "//a[@class = 'bui-button bui-button--secondary js-header-login-link']/span[contains(text(),'Sign in')]";
 
 
     WebDriver driver = BasicDriver.getWebDriver();
@@ -82,12 +83,16 @@ public class MainPage {
         return driver.findElement(By.xpath(TOOLTIP_INFO)).getText();
     }
 
-    public void clickRegister(){
+    public void clickRegister() {
         driver.findElement(By.xpath(REGISTER_BUTTON)).click();
     }
 
-    public void closeModalWindow(){
+    public void closeModalWindow() {
         driver.findElement(By.xpath(CLOSE_MODAL_WINDOW)).click();
+    }
+
+    public void clickSignIn() {
+        driver.findElement(By.xpath(SIGN_IN_BUTTON)).click();
     }
 
 }

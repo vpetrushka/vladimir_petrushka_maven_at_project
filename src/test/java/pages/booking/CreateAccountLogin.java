@@ -4,7 +4,7 @@ import driver.BasicDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class CreateAccount {
+public class CreateAccountLogin {
 
     WebDriver driver = BasicDriver.getWebDriver();
 
