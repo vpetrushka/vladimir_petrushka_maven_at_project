@@ -16,7 +16,7 @@ public class AddToFavoriteTest {
     public void addToFavoriteTest(){
         mainPage.navigateToMainPage();
         mainPage.clickSignIn();
-        login.inputEmail();
+//        login.inputEmail();
 
     }
 }
