@@ -24,7 +24,10 @@
                 <configuration>
                     <includes>
                         <include>
-                            DateCheckerTest
+                            FakeRunner
+                        </include>
+                        <include>
+                            FakeRunner2
                         </include>
                     </includes>
                 </configuration>
@@ -84,7 +87,21 @@
             <version>2.12.2</version>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.16.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.16.0</version>
+        </dependency>
 
     </dependencies>
 
