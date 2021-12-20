@@ -4,13 +4,14 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import needstobesorted.classwork.driver.Driver;
+import needstobesorted.classwork.driver.ThreadSafeDriver;
 import org.junit.Assert;
 
 public class FakeGuiSteps {
 
     @Given(value = "I go to onliner.by")
     public void checkHeaderTest(){
-        Driver.getWebDriver().get("https://onliner.by");
+        ThreadSafeDriver.getDriver().get("https://onliner.by");
     }
 
     @When("I start waiting")
@@ -26,4 +27,5 @@ public class FakeGuiSteps {
     public void verity(){
         Assert.assertTrue(true);
     }
+
 }

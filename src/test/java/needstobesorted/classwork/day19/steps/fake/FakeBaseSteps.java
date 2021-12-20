@@ -1,11 +1,13 @@
 package needstobesorted.classwork.day19.steps.fake;
 
+
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import needstobesorted.classwork.driver.Config;
-import needstobesorted.classwork.driver.Driver;
+import needstobesorted.classwork.driver.ThreadSafeDriver;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.junit.After;
-import org.junit.Before;
+
 
 public class FakeBaseSteps {
 
@@ -14,12 +16,12 @@ public class FakeBaseSteps {
     @Before
     public void beforeTest(){
         LOGGER.info("Initializin Webdriver..");
-        Driver.setConfig(Config.CHROME);
+        ThreadSafeDriver.setConfig(Config.REMOTE);
     }
 
     @After
     public void afterTest(){
         LOGGER.info("Killing Webdriver..");
-        Driver.destroy();
+        ThreadSafeDriver.destroy();
     }
 }

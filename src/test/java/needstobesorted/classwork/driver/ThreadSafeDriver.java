@@ -18,8 +18,7 @@ public class ThreadSafeDriver extends AbstractDriver {
         }
 
         public static void destroy(){
-            WebDriver localDriver = driverLocal.get();
-            localDriver.quit();
+            driverLocal.get().quit();
             driverLocal.set(null);
         }
 }
