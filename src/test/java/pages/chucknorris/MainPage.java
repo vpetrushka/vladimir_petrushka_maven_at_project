@@ -4,8 +4,7 @@ import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.http.ContentType;
-import io.restassured.response.ExtractableResponse;
-import io.restassured.response.Response;
+import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 
 public class MainPage {
@@ -13,6 +12,9 @@ public class MainPage {
     private static final String URL = "https://api.icndb.com";
     private static final String FIRST_LAST_NAME = "jokes/random?firstName=%s&lastName=%s";
     private static final String RANDOM_JOKE = "jokes/random";
+    private static final String MULTIPLE_RANDOM_JOKE = "jokes/random/%d";
+    private static final String SPECIFIC_JOKE = "jokes/%d";
+    private static final String NUMBER_OF_JOKES = "jokes/count";
 
 
     private RequestSpecification chuckSpecification() {
@@ -24,14 +26,14 @@ public class MainPage {
                 .build();
     }
 
-    private ExtractableResponse<Response> extractableResponse(String url) {
+    private ValidatableResponse extractableResponse(String url) {
         return RestAssured
                 .given()
                 .spec(chuckSpecification())
                 .when()
                 .get(url)
                 .then()
-                .extract();
+                .statusCode(200);
     }
 
     private String urlSetter(String firstName, String lastName) {
@@ -42,15 +44,24 @@ public class MainPage {
         return url;
     }
 
-    public String getJokeWithRandomName(String fistName, String lastName) {
-        return extractableResponse(urlSetter(fistName, lastName)).body().asPrettyString();
+    public ValidatableResponse getJokeWithRandomName(String fistName, String lastName) {
+        return extractableResponse(urlSetter(fistName, lastName));
     }
 
-    public int getStatusResponse(ExtractableResponse<Response> response) {
-        return response.statusCode();
+    public ValidatableResponse getRandomJoke() {
+        return extractableResponse(urlSetter(RANDOM_JOKE));
     }
 
-    public String getRandomJoke() {
-        return extractableResponse(urlSetter(RANDOM_JOKE)).body().asPrettyString();
+    public ValidatableResponse getMultipleRandomJokes(int number) {
+        return extractableResponse(urlSetter(String.format(MULTIPLE_RANDOM_JOKE, number)));
     }
+
+    public ValidatableResponse getSpecificJoke(int id) {
+        return extractableResponse(urlSetter(String.format(SPECIFIC_JOKE, id)));
+    }
+
+    public ValidatableResponse getNumberOfJokes() {
+        return extractableResponse(urlSetter(NUMBER_OF_JOKES));
+    }
+
 }
