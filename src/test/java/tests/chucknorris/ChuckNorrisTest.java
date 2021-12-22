@@ -2,6 +2,7 @@ package tests.chucknorris;
 
 import org.junit.Test;
 import pages.chucknorris.MainPage;
+
 import static org.hamcrest.Matchers.*;
 
 public class ChuckNorrisTest {
@@ -14,28 +15,28 @@ public class ChuckNorrisTest {
     }
 
     @Test
-    public void randomNameValueTest(){
-        mainPage.getJokeWithRandomName("Vasia", "Pupkin").body("type",equalTo("success"));
+    public void randomNameValueTest() {
+        mainPage.getJokeWithRandomName("Vasia", "Pupkin").body("type", equalTo("success"));
     }
 
     @Test
-    public void randomNameJokeContainsFirstNameTest(){
-        mainPage.getJokeWithRandomName("Vasia","Pupkin").body("value.joke",containsString("Vasia"));
+    public void randomNameJokeContainsFirstNameTest() {
+        mainPage.getJokeWithRandomName("Vasia", "Pupkin").body("value.joke", containsString("Vasia"));
     }
 
     @Test
-    public void randomNameJokeContainsLastNameTest(){
-        mainPage.getJokeWithRandomName("Vasia","Pupkin").body("value.joke",containsString("Pupkin"));
+    public void randomNameJokeContainsLastNameTest() {
+        mainPage.getJokeWithRandomName("Vasia", "Pupkin").body("value.joke", containsString("Pupkin"));
     }
 
     @Test
     public void randomJokeNameTest() {
-        mainPage.getRandomJoke().body("value.joke",containsString("Chuck"));
+        mainPage.getRandomJoke().body("value.joke", containsString("Chuck"));
     }
 
     @Test
     public void randomJokeIdTest() {
-        mainPage.getRandomJoke().body("value.id",isA(Integer.class));
+        mainPage.getRandomJoke().body("value.id", isA(Integer.class));
     }
 
     @Test
@@ -49,43 +50,43 @@ public class ChuckNorrisTest {
     }
 
     @Test
-    public void randomMultipleJokesLastJokeNameTest(){
-        mainPage.getMultipleRandomJokes(4).body("value.joke",hasToString(containsString("Chuck")));
+    public void randomMultipleJokesLastJokeNameTest() {
+        mainPage.getMultipleRandomJokes(4).body("value.joke", hasToString(containsString("Chuck")));
     }
 
     @Test
-    public void randomMultipleJokesIdCountTest(){
-        mainPage.getMultipleRandomJokes(4).body("value.id",hasSize(4));
+    public void randomMultipleJokesIdCountTest() {
+        mainPage.getMultipleRandomJokes(4).body("value.id", hasSize(4));
     }
 
     @Test
-    public void getSpecificJokeIdTest(){
-        mainPage.getSpecificJoke(501).body("value.id",is(501));
+    public void getSpecificJokeIdTest() {
+        mainPage.getSpecificJoke(501).body("value.id", is(501));
     }
 
     @Test
-    public void getSpecificJokeNameTest(){
-        mainPage.getSpecificJoke(501).body("value.joke",containsString("Chuck"));
+    public void getSpecificJokeNameTest() {
+        mainPage.getSpecificJoke(501).body("value.joke", containsString("Chuck"));
     }
 
     @Test
-    public void getSpecificJokeCategoryTest(){
-        mainPage.getSpecificJoke(501).body("value.categories",hasToString(containsString("nerdy")));
+    public void getSpecificJokeCategoryTest() {
+        mainPage.getSpecificJoke(501).body("value.categories", hasToString(containsString("nerdy")));
     }
 
     @Test
-    public void getNumberOfJokesCountTest(){
-        mainPage.getNumberOfJokes().body("value",is(574));
+    public void getNumberOfJokesCountTest() {
+        mainPage.getNumberOfJokes().body("value", is(574));
     }
 
     @Test
-    public void getNumberOfJokesValueTypeOfValueTest(){
-        mainPage.getNumberOfJokes().body("value",isA(Integer.class));
+    public void getNumberOfJokesValueTypeOfValueTest() {
+        mainPage.getNumberOfJokes().body("value", isA(Integer.class));
     }
 
     @Test
-    public void getNumberOfJokesValueTypeTest(){
-        mainPage.getNumberOfJokes().body("type",isA(String.class));
+    public void getNumberOfJokesValueTypeTest() {
+        mainPage.getNumberOfJokes().body("type", isA(String.class));
     }
 
 }
