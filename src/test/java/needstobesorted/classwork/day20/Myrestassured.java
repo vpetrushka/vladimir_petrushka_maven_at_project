@@ -18,14 +18,14 @@ public class Myrestassured {
                 .log(LogDetail.ALL)
                 .build();
 
-        String result = RestAssured
+        int result = RestAssured
                 .given()
                 .spec(requestSpecification)
           //      .body("")
                 .when()
                 .get("jokes/random?firstName=John&lastName=Doe")
                 .then()
-                .extract().body().asPrettyString();
+                .extract().statusCode();
         // .extract().body().as(Search.class).equals(BaseSteps.getUser(name));
 
         System.out.println(result);
