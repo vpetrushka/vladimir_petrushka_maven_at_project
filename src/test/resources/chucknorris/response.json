@@ -1,0 +1,10 @@
+{
+  "type": "success",
+  "value": {
+    "id": 501,
+    "joke": "Chuck Norris' programs never exit, they terminate.",
+    "categories": [
+      "nerdy"
+    ]
+  }
+}
